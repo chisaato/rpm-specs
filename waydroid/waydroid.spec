@@ -55,11 +55,9 @@ install -Dm644 -t %{buildroot}%{_unitdir} debian/waydroid-container.service
 
 %post
 %systemd_post waydroid-container.service
-%systemd_user_post anbox-session-manager.service
 
 %preun
 %systemd_preun waydroid-container.service
-%systemd_user_preun anbox-session-manager.service
 
 %postun
 %systemd_postun_with_restart waydroid-container.service
