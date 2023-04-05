@@ -1,0 +1,29 @@
+diff --git a/makeflags b/makeflags
+index c5b6951..76194f7 100644
+--- a/makeflags
++++ b/makeflags
+@@ -1,8 +1,12 @@
+ # Default:
+-CCFLAGS = -Wall -Wextra -Werror -O3
++# CCFLAGS = -Wall -Wextra -Werror -O3
+
+ # Optimized:
+-# CCFLAGS = -Wall -Wextra -Werror -O3 -march=native
++CCFLAGS = -Wall -Wextra -Werror -O3 -march=x86-64 -fipa-pta -flto=4 -fno-common -fgraphite-identity -floop-nest-optimize -fuse-linker-plugin -g
++LDFLAGS = $(CCFLAGS)
++AR=gcc-ar
++NM=gcc-nm
++RANLIB=gcc-ranlib
+
+ # Debug:
+ # CCFLAGS = -Wall -Wextra -Werror -O0 -ggdb
+diff --git a/scripts/beesd.in b/scripts/beesd.in
+index c6bfc4b..72eeade 100755
+--- a/scripts/beesd.in
++++ b/scripts/beesd.in
+@@ -139,4 +139,4 @@ fi
+ MNT_DIR="$(realpath $MNT_DIR)"
+
+ cd "$MNT_DIR"
+-exec "$bees_bin" "${ARGUMENTS[@]}" $OPTIONS "$MNT_DIR"
++exec env LD_LIBRARY_PATH=@PREFIX@/lib64 "$bees_bin" "${ARGUMENTS[@]}" $OPTIONS "$MNT_DIR"
