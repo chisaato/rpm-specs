@@ -37,11 +37,10 @@ syslog_ident=mock
 syslog_device=
 install_weak_deps=0
 metadata_expire=0
-best=1
-# 对于国内使用,最好关掉 zck
+max_parallel_downloads=20
 zchunk=False
-# 可能有效,对于挑选一个单线程速度快的
-fastestmirror=0
+fastestmirror=True
+best=1
 module_platform_id=platform:f{{ releasever }}
 protected_packages=
 user_agent={{ user_agent }}
