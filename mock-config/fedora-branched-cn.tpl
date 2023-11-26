@@ -19,7 +19,7 @@ config_opts['bootstrap_image'] = 'registry.fedoraproject.org/fedora:{{ releaseve
 conf_dir = os.getcwd()
 # 这里挂载镜像列表
 config_opts['plugin_conf']['bind_mount_opts']['dirs'].append(
-    (path.join(conf_dir, "..", "mock-config", "mirrorlist"), '/etc/dnf/mirrorlist'))
+(path.join(conf_dir, "..", "mock-config", "mirrorlist"), '/etc/dnf/mirrorlist'))
 # (path.join(conf_dir, "mock-config", "mirrorlist"), '/etc/dnf/mirrorlist'))
 
 
@@ -169,119 +169,7 @@ gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 skip_if_unavailable=False
 
-# Modular 仓库
 
-[fedora-modular]
-name=Fedora Modular $releasever - $basearch
-mirrorlist=file:///etc/dnf/mirrorlist/fedora-modular.mirrorlist
-enabled=1
-countme=1
-metadata_expire=7d
-repo_gpgcheck=0
-type=rpm
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
-skip_if_unavailable=False
-
-[fedora-modular-debuginfo]
-name=Fedora Modular $releasever - $basearch - Debug
-mirrorlist=file:///etc/dnf/mirrorlist/fedora-modular-debuginfo.mirrorlist
-enabled=0
-countme=1
-metadata_expire=7d
-repo_gpgcheck=0
-type=rpm
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
-skip_if_unavailable=False
-
-[fedora-modular-source]
-name=Fedora Modular $releasever - Source
-mirrorlist=file:///etc/dnf/mirrorlist/fedora-modular-source.mirrorlist
-enabled=0
-countme=1
-metadata_expire=7d
-repo_gpgcheck=0
-type=rpm
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
-skip_if_unavailable=False
-
-# Modular 更新仓库
-
-[updates-modular]
-name=Fedora Modular $releasever - $basearch - Updates
-mirrorlist=file:///etc/dnf/mirrorlist/fedora-updates-modular.mirrorlist
-enabled=1
-countme=1
-metadata_expire=7d
-repo_gpgcheck=0
-type=rpm
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
-skip_if_unavailable=False
-
-[updates-modular-debuginfo]
-name=Fedora Modular $releasever - $basearch - Updates - Debug
-mirrorlist=file:///etc/dnf/mirrorlist/fedora-updates-modular-debuginfo.mirrorlist
-enabled=0
-countme=1
-metadata_expire=7d
-repo_gpgcheck=0
-type=rpm
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
-skip_if_unavailable=False
-
-[updates-modular-source]
-name=Fedora Modular $releasever - Updates Source
-mirrorlist=file:///etc/dnf/mirrorlist/fedora-updates-modular-source.mirrorlist
-enabled=0
-countme=1
-metadata_expire=7d
-repo_gpgcheck=0
-type=rpm
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
-skip_if_unavailable=False
-
-# Modular 更新测试仓库
-
-[updates-testing-modular]
-name=Fedora Modular $releasever - $basearch - Test Updates
-mirrorlist=file:///etc/dnf/mirrorlist/fedora-updates-testing-modular.mirrorlist
-enabled=0
-countme=1
-metadata_expire=7d
-repo_gpgcheck=0
-type=rpm
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
-skip_if_unavailable=False
-
-[updates-testing-modular-debuginfo]
-name=Fedora Modular $releasever - $basearch - Test Updates Debug
-mirrorlist=file:///etc/dnf/mirrorlist/fedora-updates-testing-modular-debuginfo.mirrorlist
-enabled=0
-countme=1
-metadata_expire=7d
-repo_gpgcheck=0
-type=rpm
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
-skip_if_unavailable=False
-
-[updates-testing-modular-source]
-name=Fedora Modular $releasever - Test Updates Source
-mirrorlist=file:///etc/dnf/mirrorlist/fedora-updates-testing-modular-source.mirrorlist
-enabled=0
-countme=1
-metadata_expire=7d
-repo_gpgcheck=0
-type=rpm
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
-skip_if_unavailable=False
 
 {% endif %}
 """
