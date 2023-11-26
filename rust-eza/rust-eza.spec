@@ -2,7 +2,7 @@
 %global crate eza
 
 Name:           rust-eza
-Version:        0.16.2
+Version:        0.16.3
 Release:        1%{?dist}
 Summary:        Modern replacement for ls
 
@@ -10,9 +10,10 @@ License:        MIT
 URL:            https://github.com/eza-community/eza
 Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz
 # Automatically generated patch to strip dependencies and normalize metadata
-Patch:          eza-fix-metadata-auto.diff
+# Patch:          eza-fix-metadata-auto.diff
 
 BuildRequires:  rust
+BuildRequires:  cargo
 
 %global _description %{expand:
 A modern replacement for ls.}
@@ -22,7 +23,7 @@ A modern replacement for ls.}
 
 
 %prep
-%autosetup -n v%{version}.source -p1
+ls
 
 %build
 cargo build --release
