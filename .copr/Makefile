@@ -2,12 +2,12 @@
 srpm:
 	dnf -y install rpmbuild rpmdevtools
 	spectool -g $(spec)
-	rpmbuild -bs $(spec)
+	rpmbuild -bs --define "_topdir $(PWD)" --define "_sourcedir $(PWD)" $(spec)
 	# 移动到 $(outdir)
 	mv SRPMS/* $(outdir)
 srpm-debug:
 	# dnf -y install rpmbuild rpmdevtools
 	spectool -g $(spec)
-	rpmbuild -bs --define 'debug_package %{nil}' $(spec)
+	rpmbuild -bs --define "_topdir $(PWD)" --define "_sourcedir $(PWD)" $(spec)
 	# 移动到 $(outdir)
 	mv SRPMS/* $(outdir)
